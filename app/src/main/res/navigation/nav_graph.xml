@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="Home"
+    app:startDestination="@id/oneFragment">
+
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="de.syntaxinstitut.met.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_oneFragment_to_twoFragment"
+            app:destination="@id/twoFragment" />
+        <action
+            android:id="@+id/action_oneFragment_to_exhibitionDetailFragment"
+            app:destination="@id/exhibitionDetailFragment" />
+        <action
+            android:id="@+id/action_oneFragment_to_collectionFragment"
+            app:destination="@id/collectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="de.syntaxinstitut.met.ui.ArtworkFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_artwork" />
+    <fragment
+        android:id="@+id/exhibitionDetailFragment"
+        android:name="de.syntaxinstitut.met.ui.ExhibitionDetailFragment"
+        android:label="ExhibitionDetailFragment" >
+        <argument
+            android:name="exhibition_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionFragment"
+        android:name="de.syntaxinstitut.met.ui.CollectionFragment"
+        android:label="CollectionFragment" />
+</navigation>
