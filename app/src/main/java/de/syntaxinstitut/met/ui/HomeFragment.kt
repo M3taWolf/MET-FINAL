@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //fader()
         binding.exploreBtn.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionOneFragmentToTwoFragment())
         }

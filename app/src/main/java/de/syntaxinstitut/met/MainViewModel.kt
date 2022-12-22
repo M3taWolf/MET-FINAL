@@ -47,7 +47,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun loadRandomObject() {
         viewModelScope.launch {
             repository.getObjectById(allImages.random().toString())
-            //repository.getObjectById(highlights.random().toString())
+
         }
     }
 

@@ -11,47 +11,6 @@ import de.syntaxinstitut.met.data.model.Exhibition
 import de.syntaxinstitut.met.data.remote.MuseumApi
 import kotlin.Exception
 
-//class Repository(private val api: MuseumApi) {
-
-//private val _artwork = MutableLiveData<List<Artwork>>()
-//val artwork: LiveData<List<Artwork>>
-//get() = _artwork
-
-//suspend fun getData() {
-//_artwork.value = api.retrofitService.getData().data.memes
-// }
-
-//}
-
-
-//const val TAG = "AppRepository"
-
-//class AppRepository(private val api: MuseumApi, private val database: AppDatabase) {
-
-// das was wir auch wirklich in der App sehen
-//val artworkList = database.appDatabaseDao.getAll()
-
-// ohne Repository Pattern
-//    private val _artworkList = MutableLiveData<List<Artwork>>()
-//    val artworkList: LiveData<List<Artwork>>
-//    get() = _artworkList
-
-//suspend fun getMemes() {
-// wichtig damit die LiveData Zeit hat zu laden bevor der API Call scheitert
-//withContext(Dispatchers.IO) {
-
-//println("WTF call API")
-
-//val newArtworkList = api.retrofitService.getArtworkList().data.artwork
-
-// println("WTF called API")
-
-// database.appDatabaseDao.insertAll(newArtworkList)
-
-//println("WTF saved data")
-//}
-//}
-//}
 
 const val TAG = "AppRepository"
 
@@ -59,6 +18,7 @@ const val TAG = "AppRepository"
  * Diese Klasse holt die Informationen und stellt sie mithilfe von Live Data dem Rest
  * der App zur Verfügung
  */
+
 class AppRepository(private val api: MuseumApi, private val database: AppDatabase) {
 
     // Die LiveData Variable memes enthält die Liste aus dem API call
@@ -94,6 +54,7 @@ class AppRepository(private val api: MuseumApi, private val database: AppDatabas
      * Diese Funktion ruft die Daten aus dem API Service ab und speichert die Antwort in der
      * Variable memes. Falls der Call nicht funktioniert, wird die Fehlermeldung geloggt
      */
+
     suspend fun getObjectIds() {
         try {
             _objectIdList.value = api.retrofitService.getAllObjectIds().allObjectIds

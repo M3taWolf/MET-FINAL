@@ -13,7 +13,11 @@ import de.syntaxinstitut.met.R
 import de.syntaxinstitut.met.data.datamodels.Artwork
 import de.syntaxinstitut.met.ui.HomeFragmentDirections
 
-class CollectionAdapter(var dataset: List<Artwork>, val openImageFunction: (String) -> Unit, val deleteArtworkFunction: (Artwork) -> Unit) : RecyclerView.Adapter<CollectionAdapter.ItemViewHolder>() {
+class CollectionAdapter(
+    var dataset: List<Artwork>,
+    val openImageFunction: (String) -> Unit,
+    val deleteArtworkFunction: (Artwork) -> Unit
+) : RecyclerView.Adapter<CollectionAdapter.ItemViewHolder>() {
 
     var oldData = dataset.toList()
 
@@ -24,7 +28,7 @@ class CollectionAdapter(var dataset: List<Artwork>, val openImageFunction: (Stri
 
     fun submitList(list: List<Artwork>) {
         dataset = list
-        CollectionDiffUtil(oldData,dataset).also {
+        CollectionDiffUtil(oldData, dataset).also {
             DiffUtil.calculateDiff(it, false).dispatchUpdatesTo(this)
         }
         oldData = dataset.toList()
@@ -50,13 +54,11 @@ class CollectionAdapter(var dataset: List<Artwork>, val openImageFunction: (Stri
         }
 
         holder.deleteButton.setOnClickListener {
-        deleteArtworkFunction(item)
+            deleteArtworkFunction(item)
         }
 
 
-
-    //TODO Bilder offline speichern und laden
-        }
+    }
 
     override fun getItemCount(): Int {
         return dataset.size
