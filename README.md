@@ -1,4 +1,5 @@
 This is "The MET-App", an app I designed and programmed for the Metropolitan Museum of Art. You can browse through their huge artwork collection, save your most favorite artworks in your very own Met collection and check on their latest Exhibitions. 
+
 This is a great way to make art accessible for everyone.
 
 <img width="263" alt="fragment home screen" src="https://user-images.githubusercontent.com/110381412/206261500-c15b6f96-9263-48c6-a4d8-329bc39c2ab4.png">
